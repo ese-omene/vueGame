@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Puzzle First Try</title>
+		<meta charset="UTF-8">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+
+        
+        
+        
+        
+        <style>
+			.flip-list-move {
+  transition: transform 1s;
+}
+.board {
+    display: grid;
+  grid-template-columns: auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+  height: 100px;
+  width: 100px;
+}
+.piece {
+    background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+		</style>
+	</head>
+	<body>
+
+
+        <div id="app">
+           
+            <transition-group name="flip-list" tag="div" class="board">
+                <puzzle-piece
+                v-for="piece in pieces"
+                v-bind:color="piece.color"
+                v-bind:key="piece.id"
+                ></puzzle-piece>
+                
+            </transition-group>
+            <button v-on:click="shuffle">Shuffle</button>
+            <br>
+            
+
+            
+           
+
+        </div>
+	
+	
+	<script>
+        Vue.component('puzzle-piece',{
+            props:['color'], 
+            template:
+		`<div 
+			v-bind:class="'piece'" 
+			v-bind:style="{ 'background':color, }"
+			> 
+		</div>`,
+        
+            
+            
+            
+        })
+
+        new Vue({
+            el: '#app',
+            data:{
+                pieces:[
+                    {id:0, color:'red'},
+                    {id:1, color:'yellow'},
+                    {id:2, color:'blue'},
+                    {id:3, color:'green'},
+                    //{id:4, color:'orange'},
+                   // {id:5, color:'purple'}                  
+                ]
+            },
+            methods: {
+                    shuffle: function () {
+                    this.pieces = _.shuffle(this.pieces)
+                    var arr = []
+                    
+                    for (let i=0;i<this.pieces.length;i++){
+                     //console.log(this.pieces[i].id) 
+                     arr.push(this.pieces[i].id)
+                    }
+                    console.log(arr)
+                    var arr2 = [0,1,2,3]
+                    console.log(arr2)
+                    var isEqual = function (value, other) {
+
+//ref - https://qawithexperts.com/questions/185/how-to-compare-two-arrays-using-javascript-and-get-unmacthed
+var type = Object.prototype.toString.call(value);
+
+
+if (type !== Object.prototype.toString.call(other)) return false;
+
+if (['[object Array]', '[object Object]'].indexOf(type) < 0) return false;
+
+
+var valueLen = type === '[object Array]' ? value.length : Object.keys(value).length;
+var otherLen = type === '[object Array]' ? other.length : Object.keys(other).length;
+if (valueLen !== otherLen) return false;
+
+var compare = function (item1, item2) {
+
+   var itemType = Object.prototype.toString.call(item1);
+
+ 
+    if (['[object Array]', '[object Object]'].indexOf(itemType) >= 0) {
+        if (!isEqual(item1, item2)) return false;
+    }
+
+
+    else {
+
+        if (itemType !== Object.prototype.toString.call(item2)) return false;
+
+     
+        if (itemType === '[object Function]') {
+            if (item1.toString() !== item2.toString()) return false;
+        } else {
+            if (item1 !== item2) return false;
+        }
+
+    }
+};
+
+// Compare properties
+if (type === '[object Array]') {
+    for (var i = 0; i < valueLen; i++) {
+        if (compare(value[i], other[i]) === false) return false;
+    }
+} else {
+    for (var key in value) {
+        if (value.hasOwnProperty(key)) {
+            if (compare(value[key], other[key]) === false) return false;
+        }
+    }
+}
+alert("you did it!")
+return true;
+
+}
+isEqual(arr,arr2);
+                    
+                
+                    
+                     
+                    
+    }
+  }
+            
+            })
+
+       	
+	</script>
+	</body>
+</html>

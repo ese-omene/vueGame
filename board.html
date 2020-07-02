@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Puzzle First Try</title>
+		<meta charset="UTF-8">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+
+        
+        
+        
+        
+        <style>
+			.flip-list-move {
+  transition: transform 1s;
+}
+.board {
+    display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.piece {
+    background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+		</style>
+	</head>
+	<body>
+	
+	<div id="app">
+    
+            
+                <transition-group name="flip-list" tag="div" class="board">
+                    <div v-for="item in items" v-bind:key="item" class="piece">
+                      {{ item }}
+                    </div>
+                  </transition-group>
+            
+            
+            <button v-on:click="shuffle">Shuffle</button>
+        
+	</div>
+	
+	<script>
+        new Vue({
+  el: '#app',
+  data: {
+    items: [1,2,3,4,5,6,7,8,9]
+  },
+  methods: {
+    shuffle: function () {
+      this.items = _.shuffle(this.items)
+    }
+  }
+})
+
+       	
+	</script>
+	</body>
+</html>

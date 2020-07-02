@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Puzzle Second Try</title>
+		<meta charset="UTF-8">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+
+        
+        
+        
+        
+        <style>
+.board {
+    display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+  height: 100px;
+  width: 100px;
+}
+.piece {
+ /* background-color: rgba(255, 255, 255, 0.8); */
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  /*padding: 20px;*/
+  font-size: 30px;
+  text-align: center;
+}
+.piece.choice {
+    background-color:yellowgreen;
+}
+
+		</style>
+	</head>
+	<body>
+
+
+        <div id="app">
+           <div class="board">
+            <puzzle-piece
+                v-for="(piece, pieceIndex) in pieces" :key="pieceIndex"
+                v-bind:color="piece.color"
+                v-bind:key="piece.id"
+             >
+              
+            </puzzle-piece>  
+         </div>
+         <div class="row">
+            <button
+              type="button"
+              class="btn"
+              v-for="value in Array(9).keys()" :key="value"
+              @click="buttonClick(value)"
+            >
+              {{ value }}
+            </button>
+          </div>
+
+          
+        
+        </div>      
+	
+	
+	<script>
+        Vue.component('puzzle-piece',{
+            props:['color'], 
+            template:
+		`<div 
+			class="piece" 
+            v-bind:style="{ 'background':color, }"
+            @click="prompt()" 
+        	> 
+		</div>`,
+        methods:{
+			prompt:function(){
+				//alert('You clicked the '+this.color+' circle!');
+                this.color = 'red';                
+			}
+            	
+		}
+          
+        })
+
+        new Vue({
+            el: '#app',
+            data:{
+                pieces:[
+                    {id:0, color:'purple'},
+                    {id:1, color:'purple'},
+                    {id:2, color:'purple'},
+                    {id:3, color:'purple'},
+                    {id:4, color:'purple'},
+                    {id:5, color:'purple'}, 
+                    {id:6, color:'purple'},
+                    {id:7, color:'purple'},
+                    {id:8, color:'purple'},                 
+                ],
+                isActive: true,
+            },
+            methods: {
+                buttonClick(value) {
+                    //this.pieces[this.pieceIndex].value = value;
+                   // alert("you clicked a button " + value);
+                    
+                    if(value === this.pieces[value].id){
+                        this.pieces[value].color = 'green'
+                    }
+                    
+                    // for (let i=0;i<this.pieces.length;i++){
+                    //  console.log(this.pieces[i].id) 
+                                        
+                    // }
+                    
+                    
+                }
+                
+            }
+           
+        })
+
+       	
+	</script>
+	</body>
+</html>
