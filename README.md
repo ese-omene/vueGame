@@ -29,7 +29,7 @@ So ultimately I wanted a puzzle board and puzzle pieces.  This version saw the i
 I struggled with the interaction between the puzzle board and the puzzle pieces.  This iteration challenged me to figure out how to change
 the colors of the puzzle board because I knew I wanted to be able to identify which place on the board the user was going to place the piece.
 
-## [Fourth Attempt](https://github.com/ese-omene/vueGame/blob/masterboardgame3.html) ##
+## [Fourth Attempt](https://github.com/ese-omene/vueGame/blob/master/boardgame3.html) ##
 
 ### :dancers: Let's get active! ###
 
