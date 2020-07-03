@@ -5,7 +5,7 @@
 I tend to like to leave evidence of my train of thoughts. :thought_balloon: 
 Usually the comments, but this time I decided to use the README.
 
-## [First Attempt](https://github.com/ese-omene/vueGame/board.html) ##
+## [First Attempt](https://github.com/ese-omene/vueGame/blob/master/board.html) ##
 
 ### :cupid: Cupid shuffle :cupid: ###
 
@@ -14,14 +14,14 @@ My inital idea was to create a slider type puzzle, so this was my attempt to fig
 
 I went with an array after some in class discussions.
 
-## [Second Attempt](https://github.com/ese-omene/vueGame/boardgame.html) ##
+## [Second Attempt](https://github.com/ese-omene/vueGame/blob/master/boardgame.html) ##
 
 ### :rainbow: Taste the Rainbow ###
 
 The second iteration added a splash of color. Using the same shuffle from the first puzzle, now the user has to attempt to change the board from
 *"red, yellow, blue, green" to "green, blue, yellow, red".*
 
-## [Third Attempt](https://github.com/ese-omene/vueGame/boardgame2.html) ##
+## [Third Attempt](https://github.com/ese-omene/vueGame/blob/master/boardgame2.html) ##
 
 ### Color Changer :carousel_horse: ###
 
@@ -29,7 +29,7 @@ So ultimately I wanted a puzzle board and puzzle pieces.  This version saw the i
 I struggled with the interaction between the puzzle board and the puzzle pieces.  This iteration challenged me to figure out how to change
 the colors of the puzzle board because I knew I wanted to be able to identify which place on the board the user was going to place the piece.
 
-## [Fourth Attempt](https://github.com/ese-omene/vueGame/boardgame3.html) ##
+## [Fourth Attempt](https://github.com/ese-omene/vueGame/blob/masterboardgame3.html) ##
 
 ### :dancers: Let's get active! ###
 
