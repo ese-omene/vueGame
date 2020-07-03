@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Puzzle Second Try</title>
+		<title>Puzzle Third Try</title>
 		<meta charset="UTF-8">
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
@@ -100,11 +100,15 @@
             methods: {
                 buttonClick(value) {
                     //this.pieces[this.pieceIndex].value = value;
-                   // alert("you clicked a button " + value);
+                   // alert("the color is " + this.pieces[value].color);
                     
-                    if(value === this.pieces[value].id){
+                     
                         this.pieces[value].color = 'green'
-                    }
+                    // }
+                    // if (value === this.pieces[value].id && this.pieces[value].color !== 'red'){
+                    //     alert("choose an active cell")
+                    // }
+
                     
                     // for (let i=0;i<this.pieces.length;i++){
                     //  console.log(this.pieces[i].id) 

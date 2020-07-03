@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Puzzle Fourth Try</title>
+		<meta charset="UTF-8">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+
+        
+        
+        
+        
+        <style>
+.board {
+    display: grid;
+  grid-template-columns: auto auto auto ;
+  background-color: #2196F3;
+  padding: 10px;
+  height: 100px;
+  width: 100px;
+}
+.piece {
+ /* background-color: rgba(255, 255, 255, 0.8); */
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  /*padding: 20px;*/
+  font-size: 30px;
+  text-align: center;
+}
+.active-piece {
+    background-color:yellowgreen;
+}
+
+		</style>
+	</head>
+	<body>
+
+
+        
+            <div id="app">
+                <div class="board">
+                  
+                <puzzle-piece
+                v-for="(piece, pieceIndex) in pieces" :key="piece"
+                :id="pieceIndex"
+             >
+            
+            </puzzle-piece>  
+                </div>
+                                
+                <template id="puzzle-piece">
+
+                  <div class="piece"
+                  :class="{ 'active-piece': isActive }" 
+                  @click.prevent="makeActivePiece">                  
+                </div>
+
+                </template>
+
+                <br>
+
+                
+
+                <div class="row">
+                    <button
+                      type="button"
+                      class="btn"
+                      v-for="value in Array(9).keys()" :key="value"
+                      @click="buttonClick(value)"
+                    >
+                      {{ value }}
+                    </button>
+                  </div>
+
+                
+              </div>
+          
+
+          
+        
+           
+	
+	
+	<script>
+
+Vue.component('puzzle-piece', {
+  template: '#puzzle-piece',
+
+  props: ['id'],
+
+  computed: {
+    isActive () {
+    	return this.$parent.activePiece.id === this.id
+    }
+  },
+  
+  methods: {
+    makeActivePiece () {
+    this.$parent.activePiece.id = this.id
+      
+     var  active = this.id
+     console.log("the active piece is " + active)
+      return active
+    },
+    
+    
+  }
+})
+
+new Vue({
+  el: '#app',
+  
+  data: {
+    activePiece: { id: '1' },
+    pieces:[0,1,2,3,4,5,6,7,8]                
+                
+  },
+  methods: {
+      buttonClick(value) {
+        if (this.pieces[this.activePiece.id] === value){
+            alert("match")
+        }
+        else {
+            alert("try again")
+        }
+
+        
+        // var  id = value
+        //  console.log("the button is " + id);
+        //   return id
+    }
+  }
+})
+            	
+	</script>
+	</body>
+</html>
